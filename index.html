@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background-color: #e3f2fd; }
+        .weather-container { max-width: 400px; margin: auto; background-color: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 50px; }
+        .weather-info label { font-weight: bold; }
+        .weather-info p { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-container">
+            <h2 class="text-center mb-4">Hava Durumu Bilgisi</h2>
+            <form action="/getWeather" method="GET">
+                <div class="weather-info mb-4">
+                    <label for="city">Şehir:</label>
+                    <input type="text" name="city" id="city" class="form-control" placeholder="Şehir Giriniz">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Hava Durumunu Getir</button>
+            </form>
+
+            <div class="weather-info">
+                <label for="temperature">Sıcaklık:</label>
+                <input type="text" id="temperature" class="form-control" value="{{ temperature }}" readonly>
+            </div>
+            <div class="weather-info">
+                <label for="windDirection">Rüzgar Yönü:</label>
+                <input type="text" id="windDirection" class="form-control" value="{{ wind_direction }}" readonly>
+            </div>
+            <div class="weather-info">
+                <label for="windSpeed">Rüzgar Hızı:</label>
+                <input type="text" id="windSpeed" class="form-control" value="{{ wind_speed }}" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
