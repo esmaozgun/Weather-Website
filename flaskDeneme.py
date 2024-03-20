@@ -11,7 +11,7 @@ def home():
 @app.route("/getWeather", methods=["GET"])
 def get_weather():
     api_key = '4814f46b75980f6cfe8d0c3e1108ee27'
-    city = request.form.get('city')
+    city = request.args.get('city')
     weather_data = get_weather_data(city, api_key)
     if weather_data['cod'] == '404':
         return "No City Found"
